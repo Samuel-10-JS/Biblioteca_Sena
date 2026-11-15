@@ -1,0 +1,7 @@
+# .NET Core / Visual Studio Code gitignore
+bin/
+obj/
+.vs/
+*.user
+*.suo
+.DS_Store
