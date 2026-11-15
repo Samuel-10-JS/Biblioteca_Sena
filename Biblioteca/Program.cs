@@ -1,4 +1,5 @@
 ﻿using System;
+using Biblioteca.Models;
 
 class Program
 {
@@ -10,9 +11,6 @@ class Program
         ShowMainMenu();
     }
 
-    // ==========================================
-    // MENÚS Y NAVEGACIÓN
-    // ==========================================
     static void ShowMainMenu()
     {
         string opcion = "";
@@ -25,8 +23,9 @@ class Program
             Console.WriteLine("3. Préstamos");
             Console.WriteLine("4. Búsquedas y reportes");
             Console.WriteLine("5. Guardar / Cargar datos");
-            Console.WriteLine("6. Salir");
-            Console.Write("Seleccione una opción (1-6): ");
+            Console.WriteLine("6. Probar Objetos y Modelos (EV07)");
+            Console.WriteLine("7. Salir");
+            Console.Write("Seleccione una opción (1-7): ");
             
             opcion = Console.ReadLine();
 
@@ -52,6 +51,10 @@ class Program
             }
             else if (opcion == "6")
             {
+                ProbarModelosYObjetos();
+            }
+            else if (opcion == "7")
+            {
                 if (ConfirmExitAndSave())
                 {
                     break;
@@ -59,7 +62,7 @@ class Program
             }
             else
             {
-                Console.WriteLine("\n[Error] Opción no válida. Por favor, ingrese un número del 1 al 6.");
+                Console.WriteLine("\n[Error] Opción no válida. Ingrese un número del 1 al 7.");
                 Console.WriteLine("Presione cualquier tecla para continuar...");
                 Console.ReadKey();
             }
@@ -76,42 +79,22 @@ class Program
             Console.WriteLine("=== MENÚ DE LIBROS ===");
             Console.WriteLine("1. Registrar libro");
             Console.WriteLine("2. Listar libros");
-            Console.WriteLine("3. Ver detalle (por ID/ISBN)");
+            Console.WriteLine("3. Ver detalle");
             Console.WriteLine("4. Actualizar libro");
             Console.WriteLine("5. Eliminar libro");
-            Console.WriteLine("6. Volver al menú principal");
-            Console.Write("Seleccione una opción (1-6): ");
+            Console.WriteLine("6. Volver");
+            Console.Write("Seleccione opción (1-6): ");
 
             opcion = Console.ReadLine();
 
-            if (opcion == "1")
-            {
-                RegisterBook();
-            }
-            else if (opcion == "2")
-            {
-                ListBooksMenu();
-            }
-            else if (opcion == "3")
-            {
-                ViewBookDetail();
-            }
-            else if (opcion == "4")
-            {
-                UpdateBookMenu();
-            }
-            else if (opcion == "5")
-            {
-                DeleteBook();
-            }
-            else if (opcion == "6")
-            {
-                break;
-            }
-            else
-            {
-                Console.WriteLine("\n[Error] Opción no válida. Intente nuevamente.");
-            }
+            if (opcion == "1") RegisterBook();
+            else if (opcion == "2") ListBooksMenu();
+            else if (opcion == "3") ViewBookDetail();
+            else if (opcion == "4") UpdateBookMenu();
+            else if (opcion == "5") DeleteBook();
+            else if (opcion == "6") break;
+            else Console.WriteLine("\n[Error] Opción inválida.");
+
             Console.WriteLine("\nPresione cualquier tecla para continuar...");
             Console.ReadKey();
 
@@ -127,42 +110,22 @@ class Program
             Console.WriteLine("=== MENÚ DE USUARIOS ===");
             Console.WriteLine("1. Registrar usuario");
             Console.WriteLine("2. Listar usuarios");
-            Console.WriteLine("3. Ver detalle (por ID/documento)");
+            Console.WriteLine("3. Ver detalle");
             Console.WriteLine("4. Actualizar usuario");
             Console.WriteLine("5. Eliminar usuario");
-            Console.WriteLine("6. Volver al menú principal");
-            Console.Write("Seleccione una opción (1-6): ");
+            Console.WriteLine("6. Volver");
+            Console.Write("Seleccione opción (1-6): ");
 
             opcion = Console.ReadLine();
 
-            if (opcion == "1")
-            {
-                RegisterUser();
-            }
-            else if (opcion == "2")
-            {
-                ListUsers();
-            }
-            else if (opcion == "3")
-            {
-                ViewUserDetail();
-            }
-            else if (opcion == "4")
-            {
-                UpdateUserMenu();
-            }
-            else if (opcion == "5")
-            {
-                DeleteUser();
-            }
-            else if (opcion == "6")
-            {
-                break;
-            }
-            else
-            {
-                Console.WriteLine("\n[Error] Opción no válida. Intente nuevamente.");
-            }
+            if (opcion == "1") RegisterUser();
+            else if (opcion == "2") ListUsers();
+            else if (opcion == "3") ViewUserDetail();
+            else if (opcion == "4") UpdateUserMenu();
+            else if (opcion == "5") DeleteUser();
+            else if (opcion == "6") break;
+            else Console.WriteLine("\n[Error] Opción inválida.");
+
             Console.WriteLine("\nPresione cualquier tecla para continuar...");
             Console.ReadKey();
 
@@ -178,42 +141,22 @@ class Program
             Console.WriteLine("=== MENÚ DE PRÉSTAMOS ===");
             Console.WriteLine("1. Crear préstamo");
             Console.WriteLine("2. Listar préstamos");
-            Console.WriteLine("3. Ver detalle de préstamo (por ID)");
+            Console.WriteLine("3. Ver detalle de préstamo");
             Console.WriteLine("4. Registrar devolución");
             Console.WriteLine("5. Eliminar préstamo");
-            Console.WriteLine("6. Volver al menú principal");
-            Console.Write("Seleccione una opción (1-6): ");
+            Console.WriteLine("6. Volver");
+            Console.Write("Seleccione opción (1-6): ");
 
             opcion = Console.ReadLine();
 
-            if (opcion == "1")
-            {
-                CreateLoan();
-            }
-            else if (opcion == "2")
-            {
-                ListLoansMenu();
-            }
-            else if (opcion == "3")
-            {
-                ViewLoanDetail();
-            }
-            else if (opcion == "4")
-            {
-                RegisterReturn();
-            }
-            else if (opcion == "5")
-            {
-                DeleteLoan();
-            }
-            else if (opcion == "6")
-            {
-                break;
-            }
-            else
-            {
-                Console.WriteLine("\n[Error] Opción no válida. Intente nuevamente.");
-            }
+            if (opcion == "1") CreateLoan();
+            else if (opcion == "2") ListLoansMenu();
+            else if (opcion == "3") ViewLoanDetail();
+            else if (opcion == "4") RegisterReturn();
+            else if (opcion == "5") DeleteLoan();
+            else if (opcion == "6") break;
+            else Console.WriteLine("\n[Error] Opción inválida.");
+
             Console.WriteLine("\nPresione cualquier tecla para continuar...");
             Console.ReadKey();
 
@@ -230,31 +173,17 @@ class Program
             Console.WriteLine("1. Buscar libro");
             Console.WriteLine("2. Buscar usuario");
             Console.WriteLine("3. Menú de reportes");
-            Console.WriteLine("4. Volver al menú principal");
-            Console.Write("Seleccione una opción (1-4): ");
+            Console.WriteLine("4. Volver");
+            Console.Write("Seleccione opción (1-4): ");
 
             opcion = Console.ReadLine();
 
-            if (opcion == "1")
-            {
-                SearchBook();
-            }
-            else if (opcion == "2")
-            {
-                SearchUser();
-            }
-            else if (opcion == "3")
-            {
-                ReportsMenu();
-            }
-            else if (opcion == "4")
-            {
-                break;
-            }
-            else
-            {
-                Console.WriteLine("\n[Error] Opción no válida. Intente nuevamente.");
-            }
+            if (opcion == "1") SearchBook();
+            else if (opcion == "2") SearchUser();
+            else if (opcion == "3") ReportsMenu();
+            else if (opcion == "4") break;
+            else Console.WriteLine("\n[Error] Opción inválida.");
+
             Console.WriteLine("\nPresione cualquier tecla para continuar...");
             Console.ReadKey();
 
@@ -271,34 +200,20 @@ class Program
             Console.WriteLine("1. Guardar datos");
             Console.WriteLine("2. Cargar datos");
             Console.WriteLine("3. Reiniciar datos");
-            Console.WriteLine("4. Volver al menú principal");
-            Console.Write("Seleccione una opción (1-4): ");
+            Console.WriteLine("4. Volver");
+            Console.Write("Seleccione opción (1-4): ");
 
             opcion = Console.ReadLine();
 
-            if (opcion == "1")
-            {
-                SaveData();
-            }
-            else if (opcion == "2")
-            {
-                LoadData();
-            }
+            if (opcion == "1") SaveData();
+            else if (opcion == "2") LoadData();
             else if (opcion == "3")
             {
-                if (ConfirmResetData())
-                {
-                    ResetData();
-                }
+                if (ConfirmResetData()) ResetData();
             }
-            else if (opcion == "4")
-            {
-                break;
-            }
-            else
-            {
-                Console.WriteLine("\n[Error] Opción no válida. Intente nuevamente.");
-            }
+            else if (opcion == "4") break;
+            else Console.WriteLine("\n[Error] Opción inválida.");
+
             Console.WriteLine("\nPresione cualquier tecla para continuar...");
             Console.ReadKey();
 
@@ -309,10 +224,7 @@ class Program
     {
         Console.Write("\n¿Está seguro de reiniciar los datos? (S/N): ");
         string rta = Console.ReadLine();
-        if (rta != null && (rta.ToUpper() == "S" || rta.ToUpper() == "SI"))
-        {
-            return true;
-        }
+        if (rta != null && (rta.ToUpper() == "S" || rta.ToUpper() == "SI")) return true;
         Console.WriteLine("Operación cancelada.");
         return false;
     }
@@ -321,30 +233,63 @@ class Program
     {
         Console.Write("\n¿Guardar antes de salir? (S/N): ");
         string rta = Console.ReadLine();
-        if (rta != null && (rta.ToUpper() == "S" || rta.ToUpper() == "SI"))
-        {
-            SaveData();
-        }
-        Console.WriteLine("\nSaliendo del sistema de biblioteca. ¡Hasta luego!");
+        if (rta != null && (rta.ToUpper() == "S" || rta.ToUpper() == "SI")) SaveData();
+        Console.WriteLine("\nSaliendo del sistema. ¡Hasta luego!");
         return true;
     }
 
-    // ==========================================
-    // 1) MÓDULO LIBROS
-    // ==========================================
+    static void ProbarModelosYObjetos()
+    {
+        Console.Clear();
+        Console.WriteLine("=== PRUEBA DE OBJETOS Y MODELOS (EV07) ===\n");
+
+        Libro libro1 = new Libro("L001", "C# Avanzado", "John Skeet", 2021, "Programación");
+        Libro libro2 = new Libro("L002", "Clean Code", "Robert C. Martin", 2008, "Ingeniería");
+
+        Usuario usuario1 = new Usuario("10203040", "Ana Pérez", "ana@mail.com", "3001234567");
+        Usuario usuario2 = new Usuario("50607080", "Carlos Ruiz", "carlos@mail.com", "3107654321");
+
+        Prestamo prestamo1 = new Prestamo("P001", libro1, usuario1, DateTime.Now.AddDays(-3));
+
+        Console.WriteLine("--- RESÚMENES ---");
+        Console.WriteLine(libro1.ResumenCorto());
+        Console.WriteLine(libro2.ResumenCorto());
+        Console.WriteLine(usuario1.ResumenCorto());
+        Console.WriteLine(usuario2.ResumenCorto());
+        Console.WriteLine(prestamo1.ResumenCorto());
+
+        Console.WriteLine("\n--- DETALLES COMPLETOS ---");
+        Console.WriteLine(libro1.DetalleCompleto());
+        Console.WriteLine(libro2.DetalleCompleto());
+        Console.WriteLine(usuario1.DetalleCompleto());
+        Console.WriteLine(usuario2.DetalleCompleto());
+        Console.WriteLine(prestamo1.DetalleCompleto());
+
+        Console.WriteLine("\n--- VALIDACIONES DE ESTADOS Y MÉTODOS ---");
+        Console.WriteLine($"Libro 1 Disponible: {libro1.Disponible}");
+        Console.WriteLine($"Usuario 1 Activo: {usuario1.Activo}");
+        Console.WriteLine($"Préstamo 1 Estado: {prestamo1.Estado}");
+        Console.WriteLine($"Préstamo 1 Está Vencido?: {prestamo1.EstaVencido()}");
+        Console.WriteLine($"Préstamo 1 Días Transcurridos: {prestamo1.DiasTranscurridos()}");
+
+        Console.WriteLine("\nPrueba de objetos finalizada con éxito.");
+        Console.WriteLine("Presione cualquier tecla para volver al menú...");
+        Console.ReadKey();
+    }
+
     static void RegisterBook()
     {
-        Console.WriteLine("\n[Simulación] -> Registrando nuevo libro en el sistema...");
-        Console.Write("Ingrese título del libro: ");
-        string titulo = Console.ReadLine();
+        Console.WriteLine("\n[Simulación] Registrando nuevo libro...");
+        Console.Write("Ingrese título: ");
+        string t = Console.ReadLine();
         Console.Write("Ingrese autor: ");
-        string autor = Console.ReadLine();
-        Console.WriteLine($"¡Libro '{titulo}' de {autor} registrado con éxito (Disponible = true)!");
+        string a = Console.ReadLine();
+        Console.WriteLine($"Libro '{t}' de {a} registrado con éxito.");
     }
 
     static void ListBooksMenu()
     {
-        string opcion = "";
+        string op = "";
         do
         {
             Console.Clear();
@@ -354,49 +299,48 @@ class Program
             Console.WriteLine("3. Listar prestados");
             Console.WriteLine("4. Volver");
             Console.Write("Seleccione opción (1-4): ");
-            opcion = Console.ReadLine();
+            op = Console.ReadLine();
 
-            if (opcion == "1") ListBooksAll();
-            else if (opcion == "2") ListBooksAvailable();
-            else if (opcion == "3") ListBooksBorrowed();
-            else if (opcion == "4") break;
-            else Console.WriteLine("\n[Error] Opción inválida.");
+            if (op == "1") ListBooksAll();
+            else if (op == "2") ListBooksAvailable();
+            else if (op == "3") ListBooksBorrowed();
+            else if (op == "4") break;
+            else Console.WriteLine("\nOpción inválida.");
 
-            Console.WriteLine("\nPresione cualquier tecla para continuar...");
+            Console.WriteLine("\nPresione cualquier tecla...");
             Console.ReadKey();
         } while (true);
     }
 
     static void ListBooksAll()
     {
-        Console.WriteLine("\n[Simulación] Listando todos los libros de la biblioteca:");
-        Console.WriteLine("- C# Guía Definitiva (Autor: J. Albahari) [Disponible]");
-        Console.WriteLine("- Programación en .NET (Autor: A. Freeman) [Prestado]");
+        Console.WriteLine("\nListando todos los libros:");
+        Console.WriteLine("- C# Guía Definitiva [Disponible]");
+        Console.WriteLine("- Programación en .NET [Prestado]");
     }
 
     static void ListBooksAvailable()
     {
-        Console.WriteLine("\n[Simulación] Listando libros disponibles:");
-        Console.WriteLine("- C# Guía Definitiva (Autor: J. Albahari) [Disponible]");
+        Console.WriteLine("\nListando libros disponibles:");
+        Console.WriteLine("- C# Guía Definitiva [Disponible]");
     }
 
     static void ListBooksBorrowed()
     {
-        Console.WriteLine("\n[Simulación] Listando libros prestados:");
-        Console.WriteLine("- Programación en .NET (Autor: A. Freeman) [Prestado]");
+        Console.WriteLine("\nListando libros prestados:");
+        Console.WriteLine("- Programación en .NET [Prestado]");
     }
 
     static void ViewBookDetail()
     {
-        Console.Write("\nIngrese ID o ISBN del libro: ");
+        Console.Write("\nIngrese ID o ISBN: ");
         string id = Console.ReadLine();
-        Console.WriteLine($"\n[Simulación] Detalle del libro con ID/ISBN '{id}':");
-        Console.WriteLine($"Título: Programación C#, ISBN: {id}, Categoría: Tecnología, Estado: Disponible");
+        Console.WriteLine($"\nDetalle del libro {id}: Título: C# Básico, Estado: Disponible");
     }
 
     static void UpdateBookMenu()
     {
-        string opcion = "";
+        string op = "";
         do
         {
             Console.Clear();
@@ -406,78 +350,74 @@ class Program
             Console.WriteLine("3. Editar año / categoría");
             Console.WriteLine("4. Volver");
             Console.Write("Seleccione opción (1-4): ");
-            opcion = Console.ReadLine();
+            op = Console.ReadLine();
 
-            if (opcion == "1") EditBookTitle();
-            else if (opcion == "2") EditBookAuthor();
-            else if (opcion == "3") EditBookYearCategory();
-            else if (opcion == "4") break;
-            else Console.WriteLine("\n[Error] Opción inválida.");
+            if (op == "1") EditBookTitle();
+            else if (op == "2") EditBookAuthor();
+            else if (op == "3") EditBookYearCategory();
+            else if (op == "4") break;
+            else Console.WriteLine("\nOpción inválida.");
 
-            Console.WriteLine("\nPresione cualquier tecla para continuar...");
+            Console.WriteLine("\nPresione cualquier tecla...");
             Console.ReadKey();
         } while (true);
     }
 
     static void EditBookTitle()
     {
-        Console.Write("Ingrese nuevo título para el libro: ");
-        string nuevoTitulo = Console.ReadLine();
-        Console.WriteLine($"[Simulación] Título actualizado exitosamente a: '{nuevoTitulo}'.");
+        Console.Write("Nuevo título: ");
+        string val = Console.ReadLine();
+        Console.WriteLine($"Título actualizado a: {val}");
     }
 
     static void EditBookAuthor()
     {
-        Console.Write("Ingrese nuevo autor: ");
-        string nuevoAutor = Console.ReadLine();
-        Console.WriteLine($"[Simulación] Autor actualizado exitosamente a: '{nuevoAutor}'.");
+        Console.Write("Nuevo autor: ");
+        string val = Console.ReadLine();
+        Console.WriteLine($"Autor actualizado a: {val}");
     }
 
     static void EditBookYearCategory()
     {
-        Console.Write("Ingrese nuevo año y categoría: ");
-        string datos = Console.ReadLine();
-        Console.WriteLine($"[Simulación] Año/Categoría actualizados a: '{datos}'.");
+        Console.Write("Nuevo año/categoría: ");
+        string val = Console.ReadLine();
+        Console.WriteLine($"Actualizado a: {val}");
     }
 
     static void DeleteBook()
     {
-        Console.Write("\nIngrese ID del libro a eliminar: ");
+        Console.Write("\nID del libro a eliminar: ");
         string id = Console.ReadLine();
-        Console.WriteLine($"[Simulación] Validar no permitir eliminar si está prestado. Libro {id} eliminado correctamente (simulación).");
+        Console.WriteLine($"Validar no permitir si está prestado. Libro {id} procesado.");
     }
 
-    // ==========================================
-    // 2) MÓDULO USUARIOS
-    // ==========================================
     static void RegisterUser()
     {
-        Console.WriteLine("\n[Simulación] -> Registrando nuevo usuario...");
-        Console.Write("Ingrese nombre del usuario: ");
-        string nombre = Console.ReadLine();
-        Console.Write("Ingrese número de documento: ");
-        string doc = Console.ReadLine();
-        Console.WriteLine($"¡Usuario {nombre} (Doc: {doc}) registrado con éxito (Activo = true)!");
+        Console.WriteLine("\nRegistrando nuevo usuario...");
+        Console.Write("Nombre: ");
+        string n = Console.ReadLine();
+        Console.Write("Documento: ");
+        string d = Console.ReadLine();
+        Console.WriteLine($"Usuario {n} registrado con éxito.");
     }
 
     static void ListUsers()
     {
-        Console.WriteLine("\n[Simulación] Listando usuarios registrados:");
-        Console.WriteLine("- Carlos Pérez (Doc: 10102030) [Activo]");
-        Console.WriteLine("- Ana Gómez (Doc: 40506070) [Activo]");
+        Console.WriteLine("\nListado de usuarios:");
+        Console.WriteLine("- Carlos Pérez [Activo]");
+        Console.WriteLine("- Ana Gómez [Activo]");
     }
 
     static void ViewUserDetail()
     {
-        Console.Write("\nIngrese ID o documento del usuario: ");
-        string doc = Console.ReadLine();
-        Console.WriteLine($"\n[Simulación] Detalle del usuario con Documento '{doc}':");
-        Console.WriteLine($"Nombre: Carlos Pérez, Documento: {doc}, Contacto: carlos@email.com, Estado: Activo");
+        Console.Write("\nDocumento del usuario: ");
+        string d = Console.ReadLine();
+        Console.WriteLine($"Detalle del usuario {d}: Nombre: Carlos Pérez, Activo: True");
     }
 
     static void UpdateUserMenu()
     {
-        string opcion = "";
+        string op = "";
         do
         {
             Console.Clear();
@@ -487,67 +427,61 @@ class Program
             Console.WriteLine("3. Activar / desactivar");
             Console.WriteLine("4. Volver");
             Console.Write("Seleccione opción (1-4): ");
-            opcion = Console.ReadLine();
+            op = Console.ReadLine();
 
-            if (opcion == "1") EditUserName();
-            else if (opcion == "2") EditUserContact();
-            else if (opcion == "3") ToggleUserActiveStatus();
-            else if (opcion == "4") break;
-            else Console.WriteLine("\n[Error] Opción inválida.");
+            if (op == "1") EditUserName();
+            else if (op == "2") EditUserContact();
+            else if (op == "3") ToggleUserActiveStatus();
+            else if (op == "4") break;
+            else Console.WriteLine("\nOpción inválida.");
 
-            Console.WriteLine("\nPresione cualquier tecla para continuar...");
+            Console.WriteLine("\nPresione cualquier tecla...");
             Console.ReadKey();
         } while (true);
     }
 
     static void EditUserName()
     {
-        Console.Write("Ingrese nuevo nombre de usuario: ");
-        string nuevoNombre = Console.ReadLine();
-        Console.WriteLine($"[Simulación] Nombre actualizado a: '{nuevoNombre}'.");
+        Console.Write("Nuevo nombre: ");
+        string val = Console.ReadLine();
+        Console.WriteLine($"Nombre actualizado a: {val}");
     }
 
     static void EditUserContact()
     {
-        Console.Write("Ingrese nuevo contacto (teléfono/email): ");
-        string contacto = Console.ReadLine();
-        Console.WriteLine($"[Simulación] Contacto actualizado a: '{contacto}'.");
+        Console.Write("Nuevo contacto: ");
+        string val = Console.ReadLine();
+        Console.WriteLine($"Contacto actualizado a: {val}");
     }
 
     static void ToggleUserActiveStatus()
     {
-        Console.Write("Ingrese documento del usuario a cambiar estado: ");
-        string doc = Console.ReadLine();
-        Console.WriteLine($"[Simulación] Estado activo/inactivo invertido para el usuario {doc}.");
+        Console.Write("Documento de usuario: ");
+        string d = Console.ReadLine();
+        Console.WriteLine($"Estado invertido para usuario {d}.");
     }
 
     static void DeleteUser()
     {
-        Console.Write("\nIngrese documento del usuario a eliminar: ");
-        string doc = Console.ReadLine();
-        Console.WriteLine($"[Simulación] Validar no permitir si tiene préstamos activos. Usuario {doc} eliminado.");
+        Console.Write("\nDocumento de usuario a eliminar: ");
+        string d = Console.ReadLine();
+        Console.WriteLine($"Validar no permitir si tiene préstamos activos. Usuario {d} procesado.");
     }
 
-    // ==========================================
-    // 3) MÓDULO PRÉSTAMOS
-    // ==========================================
     static void CreateLoan()
     {
-        Console.WriteLine("\n[Simulación] --- CREAR PRÉSTAMO ---");
-        Console.WriteLine("Lista de validaciones sugeridas:");
-        Console.WriteLine("1. Validar que el libro exista y esté disponible.");
-        Console.WriteLine("2. Validar que el usuario exista y esté activo.");
-        Console.WriteLine("3. Validar límite de préstamos por usuario.");
-        Console.Write("Ingrese ID del libro: ");
-        string idLibro = Console.ReadLine();
-        Console.Write("Ingrese documento del usuario: ");
-        string docUser = Console.ReadLine();
-        Console.WriteLine($"[Simulación] ¡Préstamo creado con éxito para el libro {idLibro} y usuario {docUser}!");
+        Console.WriteLine("\n--- CREAR PRÉSTAMO ---");
+        Console.WriteLine("Validaciones: libro existe/disponible, usuario existe/activo, límite de préstamos.");
+        Console.Write("ID Libro: ");
+        string l = Console.ReadLine();
+        Console.Write("Doc Usuario: ");
+        string u = Console.ReadLine();
+        Console.WriteLine($"Préstamo creado para libro {l} y usuario {u}.");
     }
 
     static void ListLoansMenu()
     {
-        string opcion = "";
+        string op = "";
         do
         {
             Console.Clear();
@@ -557,82 +491,75 @@ class Program
             Console.WriteLine("3. Cerrados");
             Console.WriteLine("4. Volver");
             Console.Write("Seleccione opción (1-4): ");
-            opcion = Console.ReadLine();
+            op = Console.ReadLine();
 
-            if (opcion == "1") ListLoansAll();
-            else if (opcion == "2") ListLoansActive();
-            else if (opcion == "3") ListLoansClosed();
-            else if (opcion == "4") break;
-            else Console.WriteLine("\n[Error] Opción inválida.");
+            if (op == "1") ListLoansAll();
+            else if (op == "2") ListLoansActive();
+            else if (op == "3") ListLoansClosed();
+            else if (op == "4") break;
+            else Console.WriteLine("\nOpción inválida.");
 
-            Console.WriteLine("\nPresione cualquier tecla para continuar...");
+            Console.WriteLine("\nPresione cualquier tecla...");
             Console.ReadKey();
         } while (true);
     }
 
     static void ListLoansAll()
     {
-        Console.WriteLine("\n[Simulación] Listando todos los préstamos:");
-        Console.WriteLine("- Préstamo #1: Libro 'Programación en .NET' a Carlos Pérez [Activo]");
-        Console.WriteLine("- Préstamo #2: Libro 'C# Guía Definitiva' a Ana Gómez [Cerrado]");
+        Console.WriteLine("\nListando todos los préstamos:");
+        Console.WriteLine("- Préstamo #1 [Activo]");
     }
 
     static void ListLoansActive()
     {
-        Console.WriteLine("\n[Simulación] Listando préstamos activos:");
-        Console.WriteLine("- Préstamo #1: Libro 'Programación en .NET' a Carlos Pérez [Activo]");
+        Console.WriteLine("\nListando préstamos activos:");
+        Console.WriteLine("- Préstamo #1 [Activo]");
     }
 
     static void ListLoansClosed()
     {
-        Console.WriteLine("\n[Simulación] Listando préstamos cerrados:");
-        Console.WriteLine("- Préstamo #2: Libro 'C# Guía Definitiva' a Ana Gómez [Cerrado]");
+        Console.WriteLine("\nListando préstamos cerrados:");
+        Console.WriteLine("- Préstamo #2 [Cerrado]");
     }
 
     static void ViewLoanDetail()
     {
-        Console.Write("\nIngrese ID del préstamo: ");
-        string idPrestamo = Console.ReadLine();
-        Console.WriteLine($"\n[Simulación] Detalle del préstamo #{idPrestamo}:");
-        Console.WriteLine($"Libro: Programación en .NET, Usuario: Carlos Pérez, Fecha Préstamo: 2026-03-01, Estado: Activo");
+        Console.Write("\nID Préstamo: ");
+        string id = Console.ReadLine();
+        Console.WriteLine($"Detalle Préstamo #{id}: Activo");
     }
 
     static void RegisterReturn()
     {
-        Console.Write("\nIngrese ID del préstamo a devolver: ");
+        Console.Write("\nID Préstamo a devolver: ");
         string id = Console.ReadLine();
-        Console.WriteLine($"[Simulación] Préstamo #{id} marcado como devuelto y libro marcado como disponible.");
+        Console.WriteLine($"Préstamo #{id} devuelto y libro disponible.");
     }
 
     static void DeleteLoan()
     {
-        Console.Write("\nIngrese ID del préstamo a eliminar: ");
+        Console.Write("\nID Préstamo a eliminar: ");
         string id = Console.ReadLine();
-        Console.WriteLine($"[Simulación] Préstamo #{id} eliminado del registro (reglas sugeridas aplicadas).");
+        Console.WriteLine($"Préstamo #{id} eliminado.");
     }
 
-    // ==========================================
-    // 4) BÚSQUEDAS Y REPORTES
-    // ==========================================
     static void SearchBook()
     {
-        Console.Write("\nIngrese término de búsqueda (título/autor/id/categoría): ");
-        string termino = Console.ReadLine();
-        Console.WriteLine($"\n[Simulación] Resultados de búsqueda de libro para '{termino}':");
-        Console.WriteLine($"- Encontrado: 'C# Fundamentos' (Autor: Juan Pérez, Categoría: Programación)");
+        Console.Write("\nTérmino de búsqueda de libro: ");
+        string term = Console.ReadLine();
+        Console.WriteLine($"Resultado para '{term}': C# Fundamentos");
     }
 
     static void SearchUser()
     {
-        Console.Write("\nIngrese término de búsqueda (nombre/id): ");
-        string termino = Console.ReadLine();
-        Console.WriteLine($"\n[Simulación] Resultados de búsqueda de usuario para '{termino}':");
-        Console.WriteLine($"- Encontrado: María López (Doc: 98765432)");
+        Console.Write("\nTérmino de búsqueda de usuario: ");
+        string term = Console.ReadLine();
+        Console.WriteLine($"Resultado para '{term}': María López");
     }
 
     static void ReportsMenu()
     {
-        string opcion = "";
+        string op = "";
         do
         {
             Console.Clear();
@@ -643,68 +570,59 @@ class Program
             Console.WriteLine("4. Reporte resumen");
             Console.WriteLine("5. Volver");
             Console.Write("Seleccione opción (1-5): ");
-            opcion = Console.ReadLine();
+            op = Console.ReadLine();
 
-            if (opcion == "1") ReportByUser();
-            else if (opcion == "2") ReportByBook();
-            else if (opcion == "3") ReportOverdue();
-            else if (opcion == "4") ReportSummary();
-            else if (opcion == "5") break;
-            else Console.WriteLine("\n[Error] Opción inválida.");
+            if (op == "1") ReportByUser();
+            else if (op == "2") ReportByBook();
+            else if (op == "3") ReportOverdue();
+            else if (op == "4") ReportSummary();
+            else if (op == "5") break;
+            else Console.WriteLine("\nOpción inválida.");
 
-            Console.WriteLine("\nPresione cualquier tecla para continuar...");
+            Console.WriteLine("\nPresione cualquier tecla...");
             Console.ReadKey();
         } while (true);
     }
 
     static void ReportByUser()
     {
-        Console.Write("Ingrese documento del usuario para el reporte: ");
+        Console.Write("Documento de usuario: ");
         string doc = Console.ReadLine();
-        Console.WriteLine($"\n[Simulación] Generando reporte de préstamos para el usuario {doc}:");
-        Console.WriteLine("- 1 préstamo activo, 2 préstamos históricos.");
+        Console.WriteLine($"Reporte de usuario {doc}: 1 activo.");
     }
 
     static void ReportByBook()
     {
-        Console.Write("Ingrese ID/ISBN del libro para el reporte: ");
+        Console.Write("ID/ISBN libro: ");
         string isbn = Console.ReadLine();
-        Console.WriteLine($"\n[Simulación] Generando historial de préstamos para el libro {isbn}:");
-        Console.WriteLine("- Prestado 4 veces en total.");
+        Console.WriteLine($"Reporte de libro {isbn}: 4 préstamos históricos.");
     }
 
     static void ReportOverdue()
     {
-        Console.WriteLine("\n[Simulación] Generando reporte de préstamos vencidos:");
-        Console.WriteLine("- No hay préstamos vencidos actualmente.");
+        Console.WriteLine("\nReporte de vencidos: Ninguno.");
     }
 
     static void ReportSummary()
     {
-        Console.WriteLine("\n[Simulación] Resumen general del sistema de biblioteca:");
-        Console.WriteLine("- Total libros: 50 | Disponibles: 42 | Prestados: 8");
-        Console.WriteLine("- Total usuarios activos: 120");
-        Console.WriteLine("- Total préstamos activos: 8");
+        Console.WriteLine("\nResumen general: 50 libros, 120 usuarios, 8 préstamos activos.");
     }
 
-    // ==========================================
-    // 5) GUARDAR / CARGAR DATOS
-    // ==========================================
     static void SaveData()
     {
-        Console.WriteLine("\n[Simulación] Guardando todos los datos del sistema de biblioteca...");
-        Console.WriteLine("¡Datos guardados exitosamente!");
+        Console.WriteLine("\nGuardando datos...");
+        Console.WriteLine("¡Datos guardados con éxito!");
     }
 
     static void LoadData()
     {
-        Console.WriteLine("\n[Simulación] Cargando datos del sistema de biblioteca...");
-        Console.WriteLine("¡Datos cargados exitosamente!");
+        Console.WriteLine("\nCargando datos...");
+        Console.WriteLine("¡Datos cargados con éxito!");
     }
 
     static void ResetData()
     {
-        Console.WriteLine("\n[Simulación] Reiniciando datos del sistema a valores iniciales...");
-        Console.WriteLine("¡Sistema reiniciado con éxito!");
+        Console.WriteLine("\nReiniciando datos...");
+        Console.WriteLine("¡Datos reiniciados con éxito!");
     }
 }
